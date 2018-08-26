@@ -1,0 +1,37 @@
+<hr>
+<b> Interploation</b>
+<br>
+<i>Using of ngStyle (builtin attribute directive/selector)</i>
+<h5 [ngStyle]="{backgroundColor: getColorBasedOnState()}">{{'The server'}} with Id is {{serverId}} is {{serverStatus}}</h5>
+Method is : {{getServerStatus()}}
+<!--
+     ngStyle is builtin attribute directive/selector ,
+     [] -> property binding 
+      [ngStyle]="{key: value}", where key ->css Style Name and value ->css Style Value
+ -->
+<hr>
+<i>Using of ngClass (builtin attribute directive/selector)</i>
+<p [ngStyle]="{backgroundColor: getColorBasedOnState()}" [ngClass]="{online_class: serverStatus == 'online'}">
+  {{'The server'}} with Id is {{serverId}} is {{serverStatus}}</p>
+
+<!--  ngStyle allow us to change the css Style
+ ngClass allow us to dynamically remove or add css classes
+[ngClass]="{cssClass: expression}" -> cssClass ==> Css class name
+                                  expression ==> These r conditions wheather the Css class shld be attached (or) not              
+-->
+
+<hr>
+<i>Using of ngFor (builtin attribute directive/selector)</i>
+<button class="btn btn-warning" (click)="onClickAddCity()">City</button>
+<p *ngFor="let cityName of citiesArray">
+  {{cityName}}
+</p>
+
+<hr>
+<button class="btn btn-success"(click)="onClickCountNumber()" 
+[disabled]="isBtnDisabled">Count</button>
+
+<div *ngFor="let count of countArray; let i = index" 
+[ngStyle]="{backgroundColor: i >= 5 ? 'lightblue' : 'transparent'}">
+  {{count}}
+</div>
